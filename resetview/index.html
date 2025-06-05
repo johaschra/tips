@@ -18,6 +18,10 @@
     <!-- Leaflet Providers -->
     <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
 
+
+    <!--Leaflet resetview-->
+    <script src="https://cdn.jsdelivr.net/npm/@drustack/leaflet.resetview@1.9.2/dist/L.Control.ResetView.min.js"></script>
+    
     <!-- eigene Stile -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto:wght@300&display=swap');
@@ -152,6 +156,14 @@
 
         }
         //loadGeoJSON(<URL>);
+
+        //Reset View
+        L.control.resetView({
+        position: "topleft",
+        title: "Startview anzeigen",
+        latlng: map.getCenter(),
+        zoom: map.getZoom(),
+    }).addTo(map);
 
     </script>
 </body>
