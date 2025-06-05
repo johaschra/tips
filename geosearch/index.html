@@ -19,9 +19,9 @@
     <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
 
 
-    <!--Leaflet resetview-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@drustack/leaflet.resetview/dist/L.Control.ResetView.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@drustack/leaflet.resetview@1.9.2/dist/L.Control.ResetView.min.js"></script>
+    <!--Leaflet geosearch-->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-geosearch@4.2.0/dist/bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/leaflet-geosearch@4.2.0/dist/geosearch.min.css" rel="stylesheet">
     
     <!-- eigene Stile -->
     <style>
@@ -157,14 +157,13 @@
 
         }
         //loadGeoJSON(<URL>);
+        const searchControl = new GeoSearch.GeoSearchControl({
+            provider: new GeoSearch.OpenStreetMapProvider(),
+            style: "bar",
+            searchLabel: "Adresse suchen"
+        });
 
-        //Reset View
-        L.control.resetView({
-        position: "topleft",
-        title: "Startview anzeigen",
-        latlng: map.getCenter(),
-        zoom: map.getZoom(),
-    }).addTo(map);
+map.addControl(searchControl);
 
     </script>
 </body>
